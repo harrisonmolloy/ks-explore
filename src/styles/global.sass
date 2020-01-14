@@ -1,0 +1,326 @@
+
+/*
+/*
+/*
+/* Variables
+/*
+/*
+/*
+
+$font-stack: "pitch", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif
+$base-color: rgb(45, 45, 45)
+$inactive-color: rgb(130, 175, 182)
+$grey: rgb(150, 150, 150)
+$white-point: rgb(245, 245, 245)
+$font-size: 17px
+
+$vertical-margin: 48px
+$horizonal-margin: 72px
+
+/*
+/*
+/*
+/* Global Styles
+/*
+/*
+/*
+
+*
+  box-sizing: border-box
+  scroll-behavior: smooth
+
+html, body, #___gatsby, div[role="group"], [tabindex], .main-wrapper
+  max-width: 100vw
+  min-height: 100vh
+
+html, body, #___gatsby, div[role="group"], [tabindex]
+  overflow: hidden
+
+html
+  background-color: $white-point
+  color: $base-color
+
+button
+  all: unset
+  width: 100%
+  img
+    cursor: e-resize
+
+/*
+/*
+/*
+/* Typography
+/*
+/*
+/*
+
+@font-face
+  font-family: "pitch"
+  src: url("../fonts/PitchSansWeb-Regular.woff2") format("woff2"), url("../fonts/PitchSansWeb-Regular.woff") format("woff")
+
+*
+  font-family: $font-stack
+  text-decoration: none
+
+p, a
+  letter-spacing: 0
+  font-size: $font-size
+  line-height: $font-size + 6
+  font-family: "pitch"
+
+a
+  color: $base-color
+  transition: 0.5s
+  &:hover
+    color: $inactive-color
+
+p
+  color: $base-color
+  max-width: 38em
+
+p:first-of-type
+  margin-block-start: unset
+
+p:last-of-type
+  margin-block-end: unset
+
+/*
+/*
+/*
+/* class styling
+/*
+/*
+/*
+
+
+.main-wrapper
+  width: 100vw
+  height: 100vh
+  overflow-y: scroll
+
+.main-container
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+  padding-top: $vertical-margin
+  padding-bottom: $vertical-margin
+  padding-left: $horizonal-margin
+  padding-right: $horizonal-margin
+
+header
+  display: grid
+  grid-template-columns: repeat(8, 1fr)
+  .logo
+    width: 7%
+    min-width: 200px
+    fill: $base-color
+  nav
+    z-index: 1
+    display: flex
+    // flex-direction: column
+    color: $inactive-color
+    text-transform: capitalize
+    grid-column: 8
+    padding-bottom: $vertical-margin*2
+    .active
+      color: $base-color
+      font-style: italic
+    a
+      padding-right: 1em
+
+
+footer
+  display: flex
+  justify-content: space-between
+  bottom: $vertical-margin
+  padding-top: $vertical-margin
+  margin-top: auto
+
+
+
+.copyright
+  font-size: $font-size - 5
+  color: $grey
+
+caption
+  color: $grey
+  font-size: $font-size - 4
+  padding-top: 0.5em
+
+
+.contact
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  grid-column-gap: $horizonal-margin
+  grid-row-gap: $vertical-margin
+  p
+    grid-column: 1 / span 2
+
+.retail
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  grid-column-gap: $horizonal-margin
+  grid-row-gap: $vertical-margin
+  .copy
+    grid-column: 1 / span 2
+  .slider
+    grid-column: 3 / span 2
+    display: flex
+    align-items: flex-end
+    flex-direction: column
+    a
+      cursor: pointer
+    img
+      width: 100%
+      object-fit: cover
+
+
+/*
+/*
+/*
+/* archive page
+/*
+/*
+/*
+
+.archive
+  min-height: 100vh
+  display: grid
+  display: grid
+  grid-template-columns: repeat(8, 1fr)
+  .archive-copy
+    grid-column: 1 / span 4
+    margin-bottom: $vertical-margin*2
+  .collection
+    grid-column: 1 / span 8
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 40vh $vertical-margin*2
+    .caption
+      text-align: left
+      padding-top: 16px
+      text-transform: capitalize
+      color: $grey
+    .slider
+      overflow-x: scroll
+      overflow-y: hidden
+      scroll-snap-type: y mandatory
+      height: 40vh
+      white-space: nowrap
+      .gatsby-image-wrapper:not(:last-child)
+        margin-right: $horizonal-margin/12
+        scroll-snap-align: center center
+
+
+
+
+
+
+
+/*
+/*
+/*
+/* Random slide layout
+/*
+/*
+/*
+
+.slides
+  display: flex
+  flex-wrap: wrap
+  flex-grow: grow
+  align-items: flex-end
+  justify-content: space-around
+  margin-top: -$vertical-margin
+  margin-left: $horizonal-margin*2
+  margin-right: $horizonal-margin*2
+
+.hero-img
+  width: 100%
+  height: 85vh
+
+  padding-bottom: $vertical-margin
+  object-fit: contain
+  z-index: -1000
+
+.about
+  align-self: center
+  padding-top: $vertical-margin*2
+  padding-bottom: $vertical-margin*2
+  *
+    color: $base-color
+
+#kate
+  width: 100%
+  height: 0px
+  align-self: center
+
+.slide
+  position: relative
+  float: left
+  margin: $vertical-margin $horizonal-margin
+
+  &:nth-of-type(3n)
+    margin-bottom: 200px
+
+  &:nth-of-type(5n)
+    margin-bottom: 400px
+
+.caption
+  text-align: center
+  padding-top: 5px
+
+.slide
+  img
+    width: 400px
+    max-width: 100vw
+    height: auto
+
+  &:nth-of-type(10n) img
+    width: 375px
+    padding-left: 400px
+    padding-top: 100px
+    height: auto
+
+  &:nth-of-type(7n) img
+    width: 700px
+    height: auto
+
+  &:nth-of-type(5n) img
+    width: 800px
+    height: auto
+
+.hide-controls
+  overflow: hidden
+  height: 315px
+  display: flex
+  align-items: center
+  justify-content: center
+
+.mobile-warning
+  display: none
+
+
+/*
+/*
+/*
+/* Mobile
+/*
+/*
+/*
+
+
+@media (max-width: 1100px)
+
+  .mobile-warning
+    display: flex
+    position: fixed
+    z-index: 10000
+    background-color: $white-point
+    width: 100vw
+    height: 100vh
+    justify-content: center
+    align-items: center
+
+    p
+        font-size: $font-size - 2
