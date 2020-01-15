@@ -26,6 +26,7 @@ class Nav extends React.Component {
             href={node.link}
             className={className + " external"}
             target="_blank"
+            rel="noopener"
           >
             {node.title}
           </a>
